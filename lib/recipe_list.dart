@@ -24,7 +24,10 @@ class RecipeList extends StatelessWidget {
               final recipe = state.recipes[index];
 
               return ListTile(
-                title: Text(recipe['label']),
+                title: Text(
+                  recipe['label'],
+                  style: TextStyle(color: Colors.white),
+                ),
                 subtitle: Image.network(recipe['image']),
                 onTap: () {
                   Navigator.push(
