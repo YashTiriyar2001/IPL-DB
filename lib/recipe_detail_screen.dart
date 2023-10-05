@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class RecipeDetailScreen extends StatelessWidget {
   final Map<String, dynamic> recipe;
 
-  RecipeDetailScreen({required this.recipe});
+  const RecipeDetailScreen({required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +16,17 @@ class RecipeDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(recipe['image']),
+            // Image.network(recipe['image']),
             const SizedBox(height: 16.0),
-            Text('Source: ${recipe['source']}'),
-            Text('Yield: ${recipe['yield']} servings'),
-            Text('Calories: ${recipe['calories']} kcal'),
-            Text('Total Weight: ${recipe['totalWeight']} g'),
+            
+            // Text('Source: ${recipe['source']}'),
+            // Text('Yield: ${recipe['yield']} servings'),
+            // Text('Calories: ${recipe['calories']} kcal'),
+            // Text('Total Weight: ${recipe['totalWeight']} g'),
             const SizedBox(height: 16.0),
             const Text(
               'Ingredients:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +58,7 @@ class RecipeDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Ingredient $index:',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                style: TextStyle(fontStyle: FontStyle.italic)),
             Text('Text: $text'),
             const SizedBox(height: 8.0),
             Text('Quantity: $quantity $measure'),
