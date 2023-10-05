@@ -13,7 +13,7 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
       yield RecipeLoadingState();
       try {
         final recipes = await _fetchRecipes();
-        await Future.delayed(const Duration(seconds: 8));
+        // await Future.delayed(const Duration(seconds: 8));
         yield RecipeLoadedState(recipes: recipes);
       } catch (e) {
         yield RecipeErrorState(error: 'Failed to fetch recipes.');
