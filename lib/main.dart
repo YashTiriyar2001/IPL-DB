@@ -21,9 +21,20 @@ class MyApp extends StatelessWidget {
         create: (context) => RecipeBloc(),
         child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
+            titleSpacing: 00.0,
+            toolbarHeight: 60.2,
+            toolbarOpacity: 0.8,
             title: const Text('Recipe List'),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(25),
+                  bottomLeft: Radius.circular(25)),
+            ),
+            elevation: 0.00,
+            backgroundColor: Colors.greenAccent[400],
           ),
-          body: RecipeList(),
+          body: const RecipeList(),
         ),
       ),
     );
