@@ -6,7 +6,7 @@ import '../bloc/recipe_state.dart';
 import 'recipe_detail_screen.dart';
 
 class RecipeList extends StatelessWidget {
-  const RecipeList({super.key});
+  const RecipeList({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,17 @@ class RecipeList extends StatelessWidget {
         if (state is RecipeLoadingState) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is RecipeLoadedState) {
-          return ListView.builder(
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
+            ),
             itemCount: state.recipes.length,
             itemBuilder: (context, index) {
               final recipe = state.recipes[index];
 
-              return ListTile(
-                title: Text(recipe['label']),
-                subtitle: Image.network(recipe['image']),
+              return GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
@@ -34,6 +37,29 @@ class RecipeList extends StatelessWidget {
                     ),
                   );
                 },
+                child: Card(
+                  elevation: 2.0,
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.network(
+                          recipe['image'],
+                          width: 100.0,
+                          height: 100.0,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          recipe['label'],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             },
           );
