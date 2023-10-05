@@ -17,15 +17,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BlocProvider(
-        create: (context) => RecipeBloc(),
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Recipe List'),
+        home: BlocProvider(
+      create: (context) => RecipeBloc(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Recipe List'),
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS_zYLyiup481nX-tAU-DhUJDVU3W8-n9zpQ&usqp=CAU',
+              ),
+              fit: BoxFit.cover,
+            ),
           ),
-          body: RecipeList(),
+          child: RecipeList(),
         ),
       ),
-    );
+    ));
   }
 }
