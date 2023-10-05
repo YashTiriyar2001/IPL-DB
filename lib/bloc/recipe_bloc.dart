@@ -24,7 +24,7 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
   Future<List<Map<String, dynamic>>> _fetchRecipes() async {
     final response = await http.get(
       Uri.parse(
-          'https://api.edamam.com/search?q=chicken&app_id=79bda422&app_key=eb23f71360403baec454f7fd9e180ca3&health=alcohol-free'),
+          'https://api.edamam.com/search?q=salad&app_id=79bda422&app_key=eb23f71360403baec454f7fd9e180ca3&health=alcohol-free'),
     );
 
     if (response.statusCode == 200) {
