@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class RecipeDetailScreen extends StatelessWidget {
   final Map<String, dynamic> recipe;
 
-  RecipeDetailScreen({required this.recipe});
+ const  RecipeDetailScreen({required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class RecipeDetailScreen extends StatelessWidget {
         title: Text(recipe['label']),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -25,7 +25,7 @@ class RecipeDetailScreen extends StatelessWidget {
             const SizedBox(height: 16.0),
             const Text(
               'Ingredients:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class RecipeDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Ingredient $index:',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                style: const TextStyle(fontStyle: FontStyle.italic)),
             Text('Text: $text'),
             const SizedBox(height: 8.0),
             Text('Quantity: $quantity $measure'),
